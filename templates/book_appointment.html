@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-lg p-4 mt-4">
+      <h3 class="mb-4 text-center">Book Your Appointment</h3>
+      <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">{{ form.patient_name.label(class="form-label") }}{{ form.patient_name(class="form-control", placeholder="Full Name") }}</div>
+        <div class="mb-3">{{ form.email.label(class="form-label") }}{{ form.email(class="form-control", placeholder="Email Address") }}</div>
+        <div class="mb-3">{{ form.phone.label(class="form-label") }}{{ form.phone(class="form-control", placeholder="Phone Number") }}</div>
+        <div class="mb-3">{{ form.appointment_date.label(class="form-label") }}{{ form.appointment_date(class="form-control") }}</div>
+        <div class="mb-3">{{ form.appointment_time.label(class="form-label") }}{{ form.appointment_time(class="form-select") }}</div>
+        <div class="mb-3">{{ form.notes.label(class="form-label") }}{{ form.notes(class="form-control", placeholder="Optional notes") }}</div>
+        <div class="d-grid">{{ form.submit(class="btn btn-success btn-lg") }}</div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

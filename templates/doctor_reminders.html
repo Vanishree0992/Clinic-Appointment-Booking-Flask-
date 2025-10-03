@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Upcoming Reminders for Tomorrow</h2>
+
+{% if appointments %}
+<div class="table-responsive">
+  <table class="table table-hover align-middle">
+    <thead class="table-primary">
+      <tr>
+        <th>#</th>
+        <th>Patient Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Appointment Date</th>
+        <th>Appointment Time</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for appt in appointments %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ appt.patient_name }}</td>
+        <td>{{ appt.email }}</td>
+        <td>{{ appt.phone or 'N/A' }}</td>
+        <td>{{ appt.appointment_date }}</td>
+        <td>{{ appt.appointment_time }}</td>
+        <td><pre>{{ appt.notes or '-' }}</pre></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="alert alert-info">
+  No reminders for tomorrow yet.
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center mt-5">
+  <div class="col-md-6">
+    <div class="card shadow-lg p-4 text-center">
+      <h3 class="text-success mb-3">Appointment Booked Successfully!</h3>
+      <p>Hi <strong>{{ appointment.patient_name }}</strong>, your appointment is confirmed for:</p>
+      <p><strong>{{ appointment.appointment_date }}</strong> at <strong>{{ appointment.appointment_time }}</strong></p>
+      <a href="{{ url_for('home') }}" class="btn btn-primary mt-3">Back to Home</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
